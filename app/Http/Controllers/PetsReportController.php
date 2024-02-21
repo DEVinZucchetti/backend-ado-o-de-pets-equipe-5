@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class PetsReportController extends Controller
 {
     public function export(Request $request) {
+
         $pets = Pet::query();
 
         $filters = $request->query();
@@ -27,6 +28,10 @@ class PetsReportController extends Controller
 
         if ($request->has('weight') && !empty($filters['weight'])) {
             $pets->where('weight', $filters['weight']);
+        }
+
+        if ($request->has('specie_id') && !empty($filters['specie_id'])) {
+            $pets->where('specie_id', $filters['specie_id']);
         }
 
         $result = $pets->get();
@@ -52,8 +57,6 @@ class PetsReportController extends Controller
         $specie = $pet->specie->name;
         $vaccines = $pet->vaccines;
 
-
-        return $pet;
         $pdf = Pdf::loadView('pdfs.perfilPet', [
             'name' => $name,
             'race' => $race,

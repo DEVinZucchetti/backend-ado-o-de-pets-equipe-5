@@ -153,4 +153,33 @@ class PetController extends Controller
 
         return $pet;
     }
+
+    // public function upload(Request $request)
+    // {
+    //     $createds = [];
+
+    //     if ($request->has('files')) {
+    //         foreach ($request->file('files') as $file) {
+
+    //             $description =  $request->input('description');
+    //             $slugName = Str::of($description)->slug();
+    //             $fileName = $slugName . '.' . $file->extension();
+    //             $pathBucket = Storage::disk('s3')->put('documentos', $file);
+    //             $fullPathFile = Storage::disk('s3')->url($pathBucket);
+
+    //             $fileCreated = File::create(
+    //                 [
+    //                     'name' => $fileName,
+    //                     'size' => $file->getSize(),
+    //                     'mime' => $file->extension(),
+    //                     'url' => $pathBucket
+    //                 ]
+    //             );
+    //             array_push($createds, $fileCreated);
+    //         }
+    //     }
+
+    //     return $createds;
+
+    // }
 }
