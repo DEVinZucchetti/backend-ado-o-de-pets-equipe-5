@@ -13,8 +13,9 @@ use App\Http\Controllers\VaccineController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('adoptions', [AdoptionController::class, 'store']);
-Route::get('/adoptions', [AdoptionController::class, 'index']);
-Route::post('/adoptions/realized', [AdoptionController::class, 'realizeAdoption']);
+Route::get('adoptions', [AdoptionController::class, 'index']);
+Route::post('adoptions/realized', [AdoptionController::class, 'realizeAdoption']);
+Route::post('upload', [AdoptionController::class, 'upload']);
 
 Route::get('pets/{id}', [AdoptionController::class, 'show']);
 Route::post('login', [AuthController::class, 'store']);
